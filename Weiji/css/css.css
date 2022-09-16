@@ -1,0 +1,281 @@
+/*初始化所有值*/
+html, body, div, span, applet, object,
+iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+/*设置网页初始比例*/
+html {
+    zoom: 100%;
+}
+
+/*设置动画*/
+#all {
+    animation: show 1.5s;
+}
+
+/*图片居中*/
+#yinyang {
+    position: absolute;
+    left: 40.7%;
+    animation: rotate 2s;
+    transform-origin: center;
+    animation-fill-mode: forwards;
+}
+
+/*动画*/
+@keyframes rotate {
+    0% {
+        top: 0;
+        rotate: 0;
+        scale: 100%;
+    }
+    25% {
+        top: 35%;
+        rotate: 400deg;
+        scale: 100%;
+    }
+    100% {
+        top: 35%;
+        rotate: 4000deg;
+        scale: 0;
+    }
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/*隐藏audio标签*/
+#backmusic {
+    display: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+/*设置背景颜色*/
+body {
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+}
+
+/*设置定位*/
+#all {
+    position: relative;
+}
+
+/*排版*/
+#image {
+    margin-top: 75px;
+    margin-left: 60px;
+    z-index: 0;
+    float: left;
+}
+
+/*排版*/
+#x-A {
+    position: absolute;
+    left: 107px;
+    top: 60px;
+    z-index: 10;
+    font-size: 28px;
+    color: wheat;
+}
+
+/*排版*/
+#y-19 {
+    position: absolute;
+    z-index: 15;
+    font-size: 31px;
+    left: 40px;
+    top: 110px;
+    color: wheat;
+}
+
+/*排版*/
+#button {
+    margin-top: 75px;
+    margin-right: 85px;
+    z-index: 5;
+    float: right;
+}
+
+/*设置按钮样式*/
+#button > button {
+    font-size: 25px;
+    font-family: 华文行楷, serif;
+    background-color: #FFDEE9;
+    background-image: linear-gradient(129deg, #FFDEE9 0%, #B5FFFC 100%);
+    color: black;
+    padding: 5px;
+    margin: 15px;
+    border-radius: 20px;
+}
+
+/*设置按钮样式*/
+#button > button:hover {
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+
+/*排版*/
+#miniimage {
+    margin-top: 40px;
+    margin-right: 140px;
+    z-index: 0;
+    float: right;
+}
+
+/*排版*/
+#mini {
+    position: relative;
+}
+
+/*设置按钮样式*/
+#minibutton {
+    margin-top: 40px;
+    margin-right: 185px;
+    z-index: 5;
+    float: right;
+}
+
+/*设置按钮样式*/
+#minibutton > button {
+    font-size: 25px;
+    font-family: 华文行楷, serif;
+    background-color: #FFDEE9;
+    background-image: linear-gradient(129deg, #FFDEE9 0%, #B5FFFC 100%);
+    color: black;
+    padding: 5px;
+    margin: 15px;
+    border-radius: 15px;
+}
+
+/*设置按钮样式*/
+#minibutton > button:hover {
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+
+/*设置按钮样式*/
+#otherbutton {
+    margin-top: 20px;
+    margin-right: 270px;
+    margin-left: 0;
+    z-index: 5;
+    float: right;
+}
+
+/*设置按钮样式*/
+#otherbutton > button {
+    font-size: 25px;
+    font-family: 华文行楷, serif;
+    background-color: #FFDEE9;
+    background-image: linear-gradient(129deg, #FFDEE9 0%, #B5FFFC 100%);
+    color: black;
+    padding: 5px;
+    margin: 40px;
+    border-radius: 15px;
+}
+
+/*设置按钮样式*/
+#otherbutton > button:hover {
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+
+/*设置按钮样式*/
+#start {
+    background-color: #00DBDE !important;
+    background-image: linear-gradient(128deg, #00DBDE 0%, #FC00FF 100%) !important;
+}
+
+/*设置按钮样式*/
+#start:hover {
+    background-color: #FFFFFF !important;
+    background-image: linear-gradient(125deg, #FFFFFF 0%, #6284FF 50%, #FF0000 100%) !important;
+}
+
+/*设置图片不可拖动*/
+img {
+    -webkit-user-drag: none;
+}
+
+/*模糊匹配以shade为结尾的图片元素*/
+img[id$='shade'] {
+    pointer-events: none;
+}
+
+img[id*='qizi'] {
+
+}
+
+#xy {
+    background-color: #85FFBD;
+    background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+}
+
+/* 定义单选框边框 */
+.radio-item .radio {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #999;
+    border-radius: 50%;
+}
+
+.radio-item input:checked + .radio {
+    /*更改单选框选中颜色*/
+    border-color: #008c8c;
+}
+
+.radio-item input:checked + .radio::after {
+    /*在选中单选框里面添加一个小圆心*/
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #008c8c;
+    margin-top: 3px;
+    margin-left: 3px;
+}
+
+.radio-item input:checked ~ span {
+    /*将文字颜色变成定义颜色*/
+    color: blue;
+}
+
+.radio-item input[type="radio"] {
+    /*隐藏单选框*/
+    display: none;
+}
+
+#format {
+    margin-top: 70px;
+    margin-right: 0;
+    z-index: 5;
+    float: right;
+}
+
+

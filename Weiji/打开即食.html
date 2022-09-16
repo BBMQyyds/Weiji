@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鸡哥围棋</title>
+    <!--  页面需默认用极速核  -->
+    <meta content="webkit" name="renderer">
+    <!--  定义渲染方式  -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <!--  缩放优化  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+     minimum-scale=1.0, maximum-scale=1.0"/>
+    <!--  不弹出翻译框  -->
+    <meta content="notranslate" name="google">
+    <!--关键词-->
+    <meta content="围棋，棋谱，ai，鸡哥" name="keywords">
+    <!--描述-->
+    <meta content="鸡哥围棋是一个集自弈，摆谱，ai为一体的围棋网站"
+          name="description">
+    <!--图标-->
+    <link href="resource/image/围棋(1).jpg" rel="shortcut icon">
+    <!--导入css-->
+    <link href="css/css.css" rel="stylesheet" type="text/css">
+    <!--导入JavaScript-->
+    <script src="js/jquery-3.6.1.js" type="text/javascript"></script>
+    <script src="js/data.js" type="text/javascript"></script>
+    <script src="js/qizi&shade.js" type="text/javascript"></script>
+    <script src="js/listener.js" type="text/javascript"></script>
+    <script src="js/button.js" type="text/javascript"></script>
+    <script src="js/abstractQipan.js" type="text/javascript"></script>
+    <script src="js/rule.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<!--动画-->
+<div id="yinyang">
+    <img alt="阴阳" src="resource/image/阴阳.png">
+</div>
+
+<!--主体-->
+<div id="all">
+
+    <!--大棋盘-->
+    <div id="image">
+        <img alt="棋盘" id="qipan" src="resource/image/围棋棋盘.png">
+        <!--坐标轴-->
+        <div id="x-A">A&nbsp;&nbsp;&thinsp;&thinsp;B&nbsp;&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;D
+            &nbsp;&nbsp;E&nbsp;&nbsp;&nbsp;&nbsp;F&nbsp;&nbsp;&nbsp;G
+            &nbsp;&nbsp;H&thinsp;&nbsp;&nbsp;&nbsp;I&nbsp;&nbsp;&nbsp;&nbsp;J
+            &nbsp;&nbsp;&nbsp;K&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;M
+            &nbsp;&thinsp;N&nbsp;&thinsp;&nbsp;O&nbsp;&nbsp;&nbsp;P
+            &nbsp;&nbsp;Q&nbsp;&nbsp;&thinsp;R&nbsp;&thinsp;&thinsp;&thinsp;S
+        </div>
+        <div id="y-19">19<br>18<br>17<br>16<br>15<br>14<br>13<br>12<br>11
+            <br>10<br>&thinsp;9<br>&thinsp;8<br>&thinsp;7<br>&thinsp;6
+            <br>&thinsp;5<br>&thinsp;4<br>&thinsp;3<br>&thinsp;2<br>&thinsp;1
+        </div>
+        <!--阴影-->
+        <img id="blackshade" src="resource/image/黑棋子阴影.png" hidden alt="黑棋">
+        <img id="whiteshade" src="resource/image/白棋子阴影.png" hidden alt="白棋">
+    </div>
+    <!--大棋盘按钮-->
+    <div id="button">
+        <button id="music" onclick="musicPlay()" type="button" title="打开/关闭背景音乐">&nbsp;音&nbsp;乐&nbsp;</button>
+        <button id="regret" onclick="regret()" type="button" title="悔棋">&nbsp;悔&nbsp;棋&nbsp;</button>
+        <button id="judge" onclick="judge()" type="button" title="形势判断">形势判断</button>
+        <button id="ai" onclick="ai()" type="button" title="ai推荐">AI推荐</button>
+        <button id="start" onclick="start()" type="button" title="开始对局">开始对局</button>
+    </div>
+    <!--小棋盘-->
+    <div id="miniimage">
+        <img id="miniqipan" alt="小棋盘" src="resource/image/小围棋棋盘.png">
+        <!--阴影-->
+        <img id="miniblackshade" src="resource/image/小黑棋子阴影.png" hidden alt="小黑棋">
+        <img id="miniwhiteshade" src="resource/image/小白棋子阴影.png" hidden alt="小白棋">
+    </div>
+    <!--小棋盘按钮-->
+    <div id="minibutton">
+        <button id="backk" onclick="backk()" type="button" title="回退5步"><&nbsp;<</button>
+        <button id="back" onclick="back()" type="button" title="回退1步">&nbsp;<&nbsp;</button>
+        <button id="forward" onclick="forward()" type="button" title="前进1步">&nbsp;>&nbsp;</button>
+        <button id="forwardd" onclick="forwardd()" type="button" title="前进5步">>&nbsp;></button>
+        <button id="restore" onclick="restore()" type="button" title="复原">复原</button>
+    </div>
+    <!--其他按钮-->
+    <div id="otherbutton">
+        <input type="file" id="btn_file" hidden onchange="read()">
+        <button id="export" onclick="exportqipu()" type="button" title="导出棋谱数据">导出</button>
+        <button id="import" onclick="importqipu()" type="button" title="导入棋谱数据">导入</button>
+    </div>
+
+    <!--导出格式选择-->
+    <div id="format">
+        <label class="radio-item">
+            <input type="radio" name="format" checked value="json">
+            <span class="radio"></span>
+            <span>json</span>
+        </label>
+        <label class="radio-item">
+            <input type="radio" name="format" value="sgf">
+            <span class="radio"></span>
+            <span>sgf</span>
+        </label>
+    </div>
+
+    <!--跳转界面-->
+    <a id="situation" href="https://www.bilibili.com/video/BV1nD4y1z7Yw?spm_id_from=333.337.top_right_bar_window_default_collection.content.click&vd_source=e6083bdb83548f37b33ccb586e01e337" hidden target="_blank"></a>
+    <a id="suggest" href="https://www.bilibili.com/video/BV1GJ411x7h7?spm_id_from=333.337.search-card.all.click" hidden target="_blank"></a>
+
+    <!--调试工具-->
+    <!--<label for="text"></label><textarea id="text">x= y= </textarea>-->
+
+    <!--背景音乐-->
+    <audio autoplay controls hidden id="backmusic" src="resource/sound/背景音乐.mp3"></audio>
+
+</div>
+
+</body>
+</html>
